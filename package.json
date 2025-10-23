@@ -3,8 +3,7 @@
   "version": "1.0.50",
   "scripts": {
     "test": "bun test",
-    "test:integration": "bun test src/tests/userIntegrationTest.spec.ts",
-    "test:unit": "bun test src/tests/user.spec.ts",
+    "test:integration": "bun test",
     "dev": "bun run --watch src/index.ts",
     "commit": "git-cz",
     "docker:up": "docker-compose up -d",

@@ -3,7 +3,7 @@ import { getUsers, createUser } from "./userService";
 import User from "../models/userModel";
 import { connectTestDB, disconnectDB } from "../db";
 
-describe("User Service - Integration Test", () => {
+describe("User Service", () => {
   beforeEach(async () => {
     await connectTestDB();
     await User.deleteMany({});
