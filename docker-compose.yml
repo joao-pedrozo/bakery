@@ -13,6 +13,15 @@ services:
     networks:
       - elysia_network
 
+  redis:
+    image: redis:7-alpine
+    container_name: elysia_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - elysia_network
+
   mongodb_test:
     image: mongo:7.0
     container_name: elysia_mongodb_test
