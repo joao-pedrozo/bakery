@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "app",
+      "name": "bakery",
       "dependencies": {
         "bullmq": "^5.30.1",
         "elysia": "latest",
