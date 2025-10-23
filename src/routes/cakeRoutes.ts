@@ -17,7 +17,7 @@ export const cakeRoutes = new Elysia({ prefix: "/cakes" })
         size: t.Optional(
           t.Union([t.Literal("small"), t.Literal("medium"), t.Literal("large")])
         ),
-        cookingTime: t.Optional(t.Number()), // milliseconds
+        cookingTime: t.Optional(t.Number()),
       }),
     }
   );
