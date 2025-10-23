@@ -12,7 +12,7 @@ const cakeSchema = new mongoose.Schema({
   },
   cookingTime: {
     type: Number,
-    default: 3000, // milliseconds
+    default: 3000,
     min: 0,
   },
   status: {
