@@ -1,7 +1,6 @@
 import User from "../models/userModel";
 
 const getUsers = async () => {
-  console.log("Fetching users from the database");
   return await User.find();
 };
 
