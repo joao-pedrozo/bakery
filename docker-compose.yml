@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: elysia_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    # Removido autenticação para facilitar desenvolvimento
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - elysia_network
+
+  mongodb_test:
+    image: mongo:7.0
+    container_name: elysia_mongodb_test
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    # Removido autenticação para facilitar testes
+    volumes:
+      - mongodb_test_data:/data/db
+    networks:
+      - elysia_network
+
+volumes:
+  mongodb_data:
+  mongodb_test_data:
+
+networks:
+  elysia_network:
+    driver: bridge
+
