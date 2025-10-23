@@ -12,7 +12,13 @@ export const userRoutes = new Elysia({ prefix: "/users" })
       const user = new User(body);
       return await user.save();
     },
-    { body: t.Object({ name: t.String(), email: t.String() }) }
+    {
+      body: t.Object({
+        name: t.String(),
+        email: t.String(),
+        password: t.String(),
+      }),
+    }
   );
 
 export default userRoutes;
