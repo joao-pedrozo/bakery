@@ -1,13 +1,13 @@
-import { Elysia, t } from "elysia";
+import { Elysia } from "elysia";
+import connectDB from "./db";
+import userRoutes from "./routes/userRoutes";
+import postRoutes from "./routes/postRoutes";
+
+await connectDB();
 
 const app = new Elysia()
-  .get("/user/:id", ({ params: { id } }) => id, {
-    params: t.Object({
-      id: t.Number(),
-    }),
-  })
+  .use(userRoutes)
+  .use(postRoutes)
   .listen(3000);
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+console.log("✨ Server running at http://localhost:3000");
