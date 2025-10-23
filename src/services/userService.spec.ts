@@ -1,5 +1,5 @@
 import { test, expect, beforeEach, afterEach, describe } from "bun:test";
-import { getUsers, createUser } from "../services/userService";
+import { getUsers, createUser } from "./userService";
 import User from "../models/userModel";
 import { connectTestDB, disconnectDB } from "../db";
 
