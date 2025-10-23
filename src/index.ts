@@ -5,7 +5,7 @@ import postRoutes from "./routes/postRoutes";
 
 await connectDB();
 
-const app = new Elysia()
+new Elysia()
   .use(userRoutes)
   .use(postRoutes)
   .listen(3000);

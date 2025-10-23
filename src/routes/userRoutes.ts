@@ -3,12 +3,22 @@ import User from "../models/userModel";
 
 export const userRoutes = new Elysia({ prefix: "/users" })
   .get("/", async () => {
-    console.log(123);
     return await User.find();
   })
   .post(
     "/",
-    async ({ body }) => {
+    async ({ body, status }) => {
+      const existentUser = await User.findOne({
+        email: body.email,
+      });
+
+      if (existentUser) {
+        return status(409, {
+          error: "User already exists",
+          details: "A user with this email address is already registered.",
+        });
+      }
+
       const user = new User(body);
       return await user.save();
     },
@@ -20,5 +30,4 @@ export const userRoutes = new Elysia({ prefix: "/users" })
       }),
     }
   );
-
 export default userRoutes;
