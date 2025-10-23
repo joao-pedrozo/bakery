@@ -8,7 +8,6 @@ async function testConnection() {
     console.log("✅ Conexão bem-sucedida!");
     console.log("📍 URI atual: mongodb://localhost:27017/elysia_demo_test");
 
-    // Testar operação básica
     const mongoose = await import("mongoose");
     const db = mongoose.default.connection;
     console.log(`📊 Nome do banco: ${db.name}`);
