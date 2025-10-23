@@ -25,7 +25,6 @@ export const addCakeToQueue = async (cakeId: string, cookingTime: number) => {
   await cakeQueue.add("cook", { cakeId, cookingTime }, jobOptions);
 };
 
-// Worker: simulates cooking by waiting for cookingTime then marks as done
 export const startCakeWorker = () => {
   const worker = new Worker<CakeJobData>(
     queueName,
