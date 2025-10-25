@@ -1,6 +1,6 @@
 # Bakery App - Bun Workspace
 
-This is a monorepo using Bun workspaces with an API backend and a Nuxt.js frontend.
+This is a monorepo using Bun workspaces with an API backend and a Next.js frontend.
 
 ## Project Structure
 
@@ -15,12 +15,13 @@ This is a monorepo using Bun workspaces with an API backend and a Nuxt.js fronte
 │   │   │   └── queue/
 │   │   ├── package.json
 │   │   └── tsconfig.json
-│   └── web/          # Nuxt.js frontend
-│       ├── pages/
-│       ├── assets/
-│       ├── app.vue
-│       ├── nuxt.config.ts
-│       └── package.json
+│   └── web/          # Next.js frontend
+│       ├── src/
+│       │   ├── app/
+│       │   └── components/
+│       ├── next.config.js
+│       ├── package.json
+│       └── tsconfig.json
 ├── docker-compose.yml
 ├── package.json      # Root workspace configuration
 └── README.md
@@ -78,7 +79,7 @@ bun run dev:all
 ### 4. Access Applications
 
 - **API**: http://localhost:3000
-- **Web**: http://localhost:3001 (Nuxt default port)
+- **Web**: http://localhost:3000 (Next.js default port)
 
 ## Available Scripts
 
@@ -100,10 +101,10 @@ bun run dev:all
 
 ### Web Package Scripts
 
-- `bun run dev` - Start Nuxt development server
+- `bun run dev` - Start Next.js development server
 - `bun run build` - Build for production
-- `bun run generate` - Generate static site
-- `bun run preview` - Preview production build
+- `bun run start` - Start production server
+- `bun run lint` - Run ESLint
 
 ## Technology Stack
 
@@ -117,9 +118,10 @@ bun run dev:all
 
 ### Frontend (Web)
 
-- **Framework**: Nuxt.js 3.14.0
+- **Framework**: Next.js 15.5.6
 - **Runtime**: Bun
-- **Language**: TypeScript/Vue.js
+- **Language**: TypeScript/React
+- **Styling**: CSS Modules with modern design
 
 ### Infrastructure
 
@@ -130,10 +132,27 @@ bun run dev:all
 ## Development Notes
 
 - The API runs on port 3000
-- The Web frontend runs on port 3001 (Nuxt default)
+- The Web frontend runs on port 3000 (Next.js default)
 - MongoDB runs on port 27017
 - Redis runs on port 6379
 - Test MongoDB runs on port 27018
+
+## Features
+
+### Web Application
+
+- **Modern UI**: Beautiful gradient design with glassmorphism effects
+- **Responsive Design**: Mobile-first approach
+- **Navigation**: Sticky navigation with active states
+- **Cakes Page**: Displays cakes from the API with loading states
+- **TypeScript**: Full type safety throughout the application
+- **Components**: Reusable React components
+
+### API Integration
+
+- **Real-time Data**: Fetches cakes from the Elysia API
+- **Error Handling**: Graceful error states with retry functionality
+- **Loading States**: User-friendly loading indicators
 
 ## Testing
 
