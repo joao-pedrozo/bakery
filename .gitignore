@@ -43,3 +43,7 @@ package-lock.json
 **/*.bun
 
 Elysia
+
+packages/api/node_modules
+packages/web/node_modules
+packages/web/.nuxt

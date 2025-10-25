@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:7.0
-    container_name: elysia_mongodb
+    container_name: bakery_mongodb
     restart: unless-stopped
     ports:
       - "27017:27017"
@@ -11,20 +11,20 @@ services:
     volumes:
       - mongodb_data:/data/db
     networks:
-      - elysia_network
+      - bakery_network
 
   redis:
     image: redis:7-alpine
-    container_name: elysia_redis
+    container_name: bakery_redis
     restart: unless-stopped
     ports:
       - "6379:6379"
     networks:
-      - elysia_network
+      - bakery_network
 
   mongodb_test:
     image: mongo:7.0
-    container_name: elysia_mongodb_test
+    container_name: bakery_mongodb_test
     restart: unless-stopped
     ports:
       - "27018:27017"
@@ -32,13 +32,13 @@ services:
     volumes:
       - mongodb_test_data:/data/db
     networks:
-      - elysia_network
+      - bakery_network
 
 volumes:
   mongodb_data:
   mongodb_test_data:
 
 networks:
-  elysia_network:
+  bakery_network:
     driver: bridge
 

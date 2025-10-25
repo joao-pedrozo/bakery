@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "1.0.50",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "test": "bun test",
+    "test:integration": "bun test",
+    "test:connection": "bun run src/scripts/testConnection.ts"
+  },
+  "dependencies": {
+    "elysia": "latest",
+    "mongoose": "^8.19.2",
+    "bullmq": "^5.30.1",
+    "ioredis": "^5.4.1"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
+

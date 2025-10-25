@@ -7,9 +7,8 @@ import { startCakeWorker } from "./queue/cakeQueue";
 await connectDB();
 startCakeWorker();
 
-new Elysia()
-  .use(userRoutes)
-  .use(cakeRoutes)
-  .listen(3000);
+const app = new Elysia().use(userRoutes).use(cakeRoutes).listen(3000);
 
 console.log("✨ Server running at http://localhost:3000");
+
+export type App = typeof app;

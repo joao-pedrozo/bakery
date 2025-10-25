@@ -1,26 +1,25 @@
 {
-  "name": "bakery",
+  "name": "bakery-workspace",
   "version": "1.0.50",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
+    "dev": "bun run --filter=api dev",
+    "dev:web": "bun run --filter=web dev",
+    "dev:all": "bun run --parallel dev dev:web",
     "test": "bun test",
     "test:integration": "bun test",
-    "dev": "bun run --watch src/index.ts",
     "commit": "git-cz",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
     "test:setup": "docker-compose up -d mongodb_test",
     "test:cleanup": "docker-compose down",
-    "test:connection": "bun run src/scripts/testConnection.ts"
-  },
-  "dependencies": {
-    "elysia": "latest",
-    "mongoose": "^8.19.2",
-    "bullmq": "^5.30.1",
-    "ioredis": "^5.4.1"
+    "test:connection": "bun run --filter=api test:connection"
   },
   "devDependencies": {
-    "bun-types": "latest",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0"
   },
@@ -28,6 +27,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "module": "src/index.js"
+  }
 }
