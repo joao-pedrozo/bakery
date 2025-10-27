@@ -120,7 +120,7 @@ export default function Default() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 overflow-y-auto">
       {/* Category filters */}
       <div className="flex gap-2 overflow-x-auto pb-2">
         {categories.map((category) => (

@@ -2,18 +2,22 @@
 
 import { cn } from "@/lib/utils";
 import { Cake, Home, ShoppingBag, Heart, User, Settings } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navigation = [
-  { name: "Início", icon: Home, href: "#" },
-  { name: "Produtos", icon: ShoppingBag, href: "#produtos" },
-  { name: "Favoritos", icon: Heart, href: "#favoritos" },
-  { name: "Perfil", icon: User, href: "#perfil" },
-  { name: "Configurações", icon: Settings, href: "#config" },
+  { name: "Início", icon: Home, href: "/" },
+  { name: "Produtos", icon: ShoppingBag, href: "/produtos" },
+  { name: "Favoritos", icon: Heart, href: "/favoritos" },
+  { name: "Perfil", icon: User, href: "/perfil" },
+  { name: "Configurações", icon: Settings, href: "/configuracoes" },
 ];
 
 export function Sidebar() {
-  const [activeItem, setActiveItem] = useState("Produtos");
+  const [activeItem, setActiveItem] = useState("Início");
+
+  const pathName = usePathname();
 
   return (
     <aside className="hidden md:flex w-64 flex-col border-r border-border bg-muted/30">
@@ -26,20 +30,20 @@ export function Sidebar() {
 
       <nav className="flex-1 space-y-1 p-4">
         {navigation.map((item) => (
-          <a
+          <Link
             key={item.name}
             href={item.href}
             onClick={() => setActiveItem(item.name)}
             className={cn(
               "flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors",
-              activeItem === item.name
+              item.href === pathName
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"
             )}
           >
             <item.icon className="h-5 w-5" />
             {item.name}
-          </a>
+          </Link>
         ))}
       </nav>
 
