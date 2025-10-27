@@ -11,7 +11,8 @@ const products = [
   {
     id: 1,
     name: "Cupcakes Artesanais",
-    description: "Cupcakes fofos com coberturas cremosas",
+    description:
+      "Cupcakes fofos com coberturas cremosas e recheios artesanais, ideais para comemorações.",
     price: "R$ 12,00",
     image: "/pastel-cupcake-with-frosting.jpg",
     badge: "Mais Vendido",
@@ -20,7 +21,8 @@ const products = [
   {
     id: 2,
     name: "Macarons Franceses",
-    description: "Delicados macarons em sabores variados",
+    description:
+      "Delicados macarons em sabores variados, feitos à mão com ingredientes selecionados.",
     price: "R$ 8,00",
     image: "/colorful-french-macarons.png",
     badge: "Novidade",
@@ -29,7 +31,8 @@ const products = [
   {
     id: 3,
     name: "Brownies Gourmet",
-    description: "Brownies úmidos e intensos de chocolate",
+    description:
+      "Brownies úmidos e intensos de chocolate, com textura densa e sabor marcante.",
     price: "R$ 15,00",
     image: "/gourmet-chocolate-brownie.jpg",
     badge: null,
@@ -38,7 +41,8 @@ const products = [
   {
     id: 4,
     name: "Cookies Recheados",
-    description: "Cookies crocantes com recheios especiais",
+    description:
+      "Cookies crocantes com recheios especiais e combinações gourmet irresistíveis.",
     price: "R$ 10,00",
     image: "/stuffed-cookies-pastel.jpg",
     badge: null,
@@ -47,7 +51,8 @@ const products = [
   {
     id: 5,
     name: "Bolos Personalizados",
-    description: "Bolos sob medida para sua celebração",
+    description:
+      "Bolos sob medida para sua celebração, decorados e personalizados conforme o pedido.",
     price: "Sob consulta",
     image: "/decorated-birthday-cake-pastel.jpg",
     badge: "Personalizado",
@@ -56,7 +61,8 @@ const products = [
   {
     id: 6,
     name: "Docinhos de Festa",
-    description: "Brigadeiros, beijinhos e cajuzinhos",
+    description:
+      "Brigadeiros, beijinhos e cajuzinhos preparados com receitas tradicionais e toque caseiro.",
     price: "R$ 3,50",
     image: "/brazilian-brigadeiro-sweets.jpg",
     badge: null,
@@ -65,7 +71,8 @@ const products = [
   {
     id: 7,
     name: "Torta de Limão",
-    description: "Torta cremosa com merengue suíço",
+    description:
+      "Torta cremosa com merengue suíço e base crocante, perfeita para sobremesas especiais.",
     price: "R$ 45,00",
     image: "/lemon-meringue-pie-pastel.jpg",
     badge: null,
@@ -74,7 +81,8 @@ const products = [
   {
     id: 8,
     name: "Cheesecake de Frutas",
-    description: "Cheesecake cremoso com frutas vermelhas",
+    description:
+      "Cheesecake cremoso com frutas vermelhas, equilibrando acidez e doçura de forma elegante.",
     price: "R$ 38,00",
     image: "/fruit-cheesecake-pastel.jpg",
     badge: null,
@@ -136,13 +144,13 @@ export default function Default() {
       </div>
 
       {/* Product grid */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {filteredProducts.map((product) => (
           <Card
             key={product.id}
-            className="overflow-hidden border-2 hover:border-primary/50 transition-all hover:shadow-lg group"
+            className="overflow-hidden flex flex-col justify-between p-0 border-2 hover:border-primary/50 transition-all hover:shadow-lg group"
           >
-            <div className="relative aspect-square overflow-hidden bg-muted">
+            <div className="relative flex shrink-0 aspect-square overflow-hidden bg-muted">
               <img
                 src={product.image || "/placeholder.svg"}
                 alt={product.name}
@@ -168,7 +176,7 @@ export default function Default() {
                 />
               </Button>
             </div>
-            <CardContent className="p-4 space-y-3">
+            <CardContent className="h-full flex flex-col justify-between p-0 mx-4 mb-4 space-y-3">
               <div className="space-y-1">
                 <h3 className="font-semibold text-base text-foreground line-clamp-1">
                   {product.name}
