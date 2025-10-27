@@ -5,6 +5,7 @@ import "./globals.css";
 import { QueryProvider } from "../src/hooks/useCakes";
 import { Sidebar } from "@/components/sidebar";
 import { Header } from "@/components/header";
+import { CartDrawer } from "@/components/cart-drawer";
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
               <Header />
               {children}
             </div>
+            <CartDrawer />
           </main>
         </QueryProvider>
       </body>
