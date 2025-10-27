@@ -17,7 +17,8 @@
     "docker:logs": "docker-compose logs -f",
     "test:setup": "docker-compose up -d mongodb_test",
     "test:cleanup": "docker-compose down",
-    "test:connection": "bun run --filter=api test:connection"
+    "test:connection": "bun run --filter=api test:connection",
+    "seed:api": "bun run packages/api/src/scripts/seed.ts"
   },
   "devDependencies": {
     "commitizen": "^4.3.1",

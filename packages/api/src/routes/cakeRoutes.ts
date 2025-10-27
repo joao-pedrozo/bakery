@@ -13,7 +13,8 @@ export const cakeRoutes = new Elysia({ prefix: "/cakes" })
     },
     {
       body: t.Object({
-        flavor: t.String(),
+        name: t.String(),
+        categoryId: t.String(),
         size: t.Optional(
           t.Union([t.Literal("small"), t.Literal("medium"), t.Literal("large")])
         ),

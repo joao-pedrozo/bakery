@@ -1,17 +1,18 @@
 import Cake from "../models/cakeModel";
 
 type CreateCakeInput = {
-  flavor: string;
+  name: string;
+  categoryId: string;
   size?: "small" | "medium" | "large";
   cookingTime?: number; // milliseconds
 };
 
 const listCakes = async () => {
-  return await Cake.find().sort({ createdAt: -1 });
+  return await Cake.find().populate("category").sort({ createdAt: -1 });
 };
 
 const getCakeById = async (id: string) => {
-  return await Cake.findById(id);
+  return await Cake.findById(id).populate("category");
 };
 
 const markCakeStatus = async (
@@ -27,7 +28,8 @@ const markCakeStatus = async (
 
 const createCake = async (input: CreateCakeInput) => {
   const cake = new Cake({
-    flavor: input.flavor,
+    name: input.name,
+    category: input.categoryId,
     size: input.size ?? "medium",
     cookingTime: input.cookingTime ?? 3000,
   });
