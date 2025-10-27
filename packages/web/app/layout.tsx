@@ -26,14 +26,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${fredoka.className} antialiased`}>
         <QueryProvider>
-          <main className="flex min-h-screen">
+          <div className="flex h-screen overflow-hidden">
             <Sidebar />
-            <div className="w-full">
+            <div className="flex flex-1 flex-col overflow-hidden">
               <Header />
-              {children}
+              <main className="flex-1 overflow-y-auto">{children}</main>
             </div>
             <CartDrawer />
-          </main>
+          </div>
         </QueryProvider>
       </body>
     </html>
