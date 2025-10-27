@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useCakes } from "@/src/hooks/useCakes";
+import { useCakes } from "@/hooks/useCakes";
 
 export default function Home() {
   const { data, status, error } = useCakes();

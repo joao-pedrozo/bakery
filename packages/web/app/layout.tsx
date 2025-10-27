@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { QueryProvider } from "../src/hooks/useCakes";
 import { Sidebar } from "@/components/sidebar";
+import { Header } from "@/components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,10 @@ export default function RootLayout({
         <QueryProvider>
           <main className="flex min-h-screen">
             <Sidebar />
-            {children}
+            <div className="w-full">
+              <Header />
+              {children}
+            </div>
           </main>
         </QueryProvider>
       </body>
