@@ -1,8 +1,13 @@
 import mongoose from "mongoose";
 
 const cakeSchema = new mongoose.Schema({
-  flavor: {
+  name: {
     type: String,
+    required: true,
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
     required: true,
   },
   size: {
