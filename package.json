@@ -19,14 +19,5 @@
     "test:cleanup": "docker-compose down",
     "test:connection": "bun run --filter=api test:connection",
     "seed:api": "bun run packages/api/src/scripts/seed.ts"
-  },
-  "devDependencies": {
-    "commitizen": "^4.3.1",
-    "cz-conventional-changelog": "^3.3.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
